@@ -6,8 +6,7 @@ description = "Creates a surface for steam overlay to display on."
 edition = "2021"
 license = "Apache-2.0 OR MIT"
 rust-version = "1.77.2"
-exclude = ["/examples", "/dist-js", "/guest-js", "/node_modules"]
-links = "tauri-plugin-steam-overlay"
+exclude = ["/examples", "/dist-js", "/guest-js"]
 repository = "https://github.com/qwook/tauri-plugin-steam-overlay"
 
 
@@ -17,6 +16,3 @@ serde = "1.0"
 thiserror = "2"
 wgpu = "0.20"
 winit = "0.30"
-
-[build-dependencies]
-tauri-plugin = { version = "2.6.1", features = ["build"] }
