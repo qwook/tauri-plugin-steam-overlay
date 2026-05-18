@@ -24,3 +24,6 @@ If it's not already handled in your build pipeline, you may need to download and
 # Future?
 
 Maybe I'll turn this into full-blown steam integration with JS library and build step that copies the redistributables if there's enough interest.
+
+# Credits
+Inspired by code written by [Armaldio](https://github.com/Armaldio) in this [discussion](https://github.com/orgs/tauri-apps/discussions/11944).
