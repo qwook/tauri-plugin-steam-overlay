@@ -56,13 +56,26 @@ impl<'win> WgpuState<'win> {
 
         let format = caps.formats[0];
 
+        let alpha_mode = caps
+            .alpha_modes
+            .iter()
+            .copied()
+            .find(|&m| m == wgpu::CompositeAlphaMode::PostMultiplied)
+            .or_else(|| {
+                caps.alpha_modes
+                    .iter()
+                    .copied()
+                    .find(|&m| m == wgpu::CompositeAlphaMode::PreMultiplied)
+            })
+            .unwrap_or(wgpu::CompositeAlphaMode::Opaque);
+
         let config = wgpu::SurfaceConfiguration {
             usage: wgpu::TextureUsages::RENDER_ATTACHMENT,
             format,
             width: size.width,
             height: size.height,
             present_mode: wgpu::PresentMode::Fifo,
-            alpha_mode: wgpu::CompositeAlphaMode::PostMultiplied,
+            alpha_mode,
             view_formats: vec![],
             desired_maximum_frame_latency: 2,
         };
