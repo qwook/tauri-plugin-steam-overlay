@@ -1,5 +1,6 @@
 <script>
   import Greet from './lib/Greet.svelte'
+  import { invoke } from "@tauri-apps/api/core"
 
 	let response = $state('')
 
@@ -32,7 +33,10 @@
     <Greet />
   </div>
 
-  <div>
+  <div class="row">
+    <button onclick={() => invoke("activate_overlay")}>
+      Open Steam Overlay
+    </button>
   </div>
 
 </main>
